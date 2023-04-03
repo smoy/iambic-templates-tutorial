@@ -1,0 +1,33 @@
+template_type: NOQ::AWS::IAM::Role
+included_accounts:
+  - iambic-tutorial-aws-mgmt
+identifier: IambicHubRole
+properties:
+  description: This role is used by IAMbic to assume into the spoke role of every account defined in the IAMbic config. Managed via CloudFormation.
+  assume_role_policy_document:
+    statement:
+      - action:
+          - sts:AssumeRole
+          - sts:TagSession
+        effect: Allow
+        principal:
+          aws: arn:aws:sts::{{account_id}}:assumed-role/AWSReservedSSO_AdministratorAccess_c46a6fdefb24c150/steven@stevenmoy.com
+    version: '2012-10-17'
+  inline_policies:
+    - policy_name: assume_spoke_role
+      statement:
+        - action:
+            - sts:assumerole
+          effect: Allow
+          resource:
+            - arn:aws:iam::*:role/IambicSpokeRole
+      version: '2012-10-17'
+    - policy_name: list_spoke_account_info
+      statement:
+        - action:
+            - organizations:ListAccounts
+            - organizations:ListTagsForResource
+          effect: Allow
+          resource: '*'
+      version: '2012-10-17'
+  role_name: IambicHubRole

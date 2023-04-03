@@ -1,0 +1,14 @@
+template_type: NOQ::AWS::IAM::Role
+included_accounts:
+  - iambic-tutorial-aws-stage
+identifier: sample-app-role-stage
+properties:
+  description: Allows EC2 instances to call AWS services on your behalf.
+  assume_role_policy_document:
+    statement:
+      - action: sts:AssumeRole
+        effect: Allow
+        principal:
+          service: ec2.amazonaws.com
+    version: '2012-10-17'
+  role_name: sample-app-role-stage

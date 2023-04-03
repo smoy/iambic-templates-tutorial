@@ -1,0 +1,12 @@
+template_type: NOQ::AWS::IdentityCenter::PermissionSet
+access_rules:
+  - included_orgs:
+      - o-4mqcbzngcu
+    users:
+      - smoy
+identifier: AdministratorAccess
+properties:
+  name: AdministratorAccess
+  managed_policies:
+    - arn: arn:aws:iam::aws:policy/AdministratorAccess
+  session_duration: PT1H

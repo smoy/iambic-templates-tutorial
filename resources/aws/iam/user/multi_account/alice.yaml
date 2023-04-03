@@ -1,0 +1,8 @@
+template_type: NOQ::AWS::IAM::User
+included_accounts:
+  - iambic-tutorial-aws-dev
+  - iambic-tutorial-aws-prod
+  - iambic-tutorial-aws-stage
+identifier: alice
+properties:
+  user_name: alice

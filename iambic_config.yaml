@@ -1,0 +1,32 @@
+template_type: NOQ::Core::Config
+version: '1'
+aws:
+  accounts:
+    - account_id: '251344704583'
+      account_name: iambic-tutorial-aws-prod
+      iambic_managed: read_and_write
+      org_id: o-4mqcbzngcu
+      spoke_role_arn: arn:aws:iam::251344704583:role/IambicSpokeRole
+    - account_id: '659751573789'
+      account_name: iambic-tutorial-aws-mgmt
+      iambic_managed: read_and_write
+      org_id: o-4mqcbzngcu
+      spoke_role_arn: arn:aws:iam::659751573789:role/IambicSpokeRole
+    - account_id: '373115601789'
+      account_name: iambic-tutorial-aws-stage
+      iambic_managed: read_and_write
+      org_id: o-4mqcbzngcu
+      spoke_role_arn: arn:aws:iam::373115601789:role/IambicSpokeRole
+    - account_id: '961373467395'
+      account_name: iambic-tutorial-aws-dev
+      iambic_managed: read_and_write
+      org_id: o-4mqcbzngcu
+      spoke_role_arn: arn:aws:iam::961373467395:role/IambicSpokeRole
+  organizations:
+    - default_rule:
+        iambic_managed: read_and_write
+      hub_role_arn: arn:aws:iam::659751573789:role/IambicHubRole
+      identity_center:
+        region: us-west-2
+      org_account_id: '659751573789'
+      org_id: o-4mqcbzngcu
