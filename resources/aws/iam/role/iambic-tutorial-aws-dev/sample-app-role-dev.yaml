@@ -3,7 +3,7 @@ included_accounts:
   - iambic-tutorial-aws-dev
 identifier: sample-app-role-dev
 properties:
-  description: Allows EC2 instances to call AWS services on your behalf.
+  description: Change role description
   assume_role_policy_document:
     statement:
       - action: sts:AssumeRole
