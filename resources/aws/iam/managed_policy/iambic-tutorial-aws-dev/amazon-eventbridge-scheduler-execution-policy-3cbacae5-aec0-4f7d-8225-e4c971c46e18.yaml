@@ -1,0 +1,16 @@
+template_type: NOQ::AWS::IAM::ManagedPolicy
+included_accounts:
+  - iambic-tutorial-aws-dev
+identifier: Amazon-EventBridge-Scheduler-Execution-Policy-3cbacae5-aec0-4f7d-8225-e4c971c46e18
+properties:
+  path: /service-role/
+  policy_document:
+    statement:
+      - action:
+          - lambda:InvokeFunction
+        effect: Allow
+        resource:
+          - arn:aws:lambda:us-east-1:{{account_id}}:function:update_role_description
+          - arn:aws:lambda:us-east-1:{{account_id}}:function:update_role_description:*
+    version: '2012-10-17'
+  policy_name: Amazon-EventBridge-Scheduler-Execution-Policy-3cbacae5-aec0-4f7d-8225-e4c971c46e18

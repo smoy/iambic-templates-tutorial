@@ -1,0 +1,24 @@
+template_type: NOQ::AWS::IAM::Role
+included_accounts:
+  - iambic-tutorial-aws-dev
+identifier: update_role_description-role-j21873m9
+properties:
+  assume_role_policy_document:
+    statement:
+      - action: sts:AssumeRole
+        effect: Allow
+        principal:
+          service: lambda.amazonaws.com
+    version: '2012-10-17'
+  inline_policies:
+    - policy_name: update-role-description
+      statement:
+        - action: iam:UpdateRoleDescription
+          effect: Allow
+          resource: arn:aws:iam::{{account_id}}:role/import-sensor
+          sid: VisualEditor0
+      version: '2012-10-17'
+  managed_policies:
+    - policy_arn: arn:aws:iam::{{account_id}}:policy/service-role/AWSLambdaBasicExecutionRole-78a8ff97-2ce1-463c-8ade-3ebefaa55e39
+  path: /service-role/
+  role_name: update_role_description-role-j21873m9

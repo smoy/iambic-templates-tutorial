@@ -3,7 +3,7 @@ included_accounts:
   - iambic-tutorial-aws-dev
 identifier: import-sensor
 properties:
-  description: Allows EC2 instances to call AWS services on your behalf.
+  description: '2023-04-04T17:47:48.460864'
   assume_role_policy_document:
     statement:
       - action: sts:AssumeRole

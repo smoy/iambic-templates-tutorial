@@ -1,0 +1,19 @@
+template_type: NOQ::AWS::IAM::ManagedPolicy
+included_accounts:
+  - iambic-tutorial-aws-dev
+identifier: AWSLambdaBasicExecutionRole-78a8ff97-2ce1-463c-8ade-3ebefaa55e39
+properties:
+  path: /service-role/
+  policy_document:
+    statement:
+      - action: logs:CreateLogGroup
+        effect: Allow
+        resource: arn:aws:logs:us-east-1:{{account_id}}:*
+      - action:
+          - logs:CreateLogStream
+          - logs:PutLogEvents
+        effect: Allow
+        resource:
+          - arn:aws:logs:us-east-1:{{account_id}}:log-group:/aws/lambda/update_role_description:*
+    version: '2012-10-17'
+  policy_name: AWSLambdaBasicExecutionRole-78a8ff97-2ce1-463c-8ade-3ebefaa55e39

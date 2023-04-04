@@ -1,0 +1,19 @@
+template_type: NOQ::AWS::IAM::Role
+included_accounts:
+  - iambic-tutorial-aws-dev
+identifier: Amazon_EventBridge_Scheduler_LAMBDA_0a11868946
+properties:
+  assume_role_policy_document:
+    statement:
+      - action: sts:AssumeRole
+        condition:
+          StringEquals:
+            aws:SourceAccount: '{{account_id}}'
+        effect: Allow
+        principal:
+          service: scheduler.amazonaws.com
+    version: '2012-10-17'
+  managed_policies:
+    - policy_arn: arn:aws:iam::{{account_id}}:policy/service-role/Amazon-EventBridge-Scheduler-Execution-Policy-3cbacae5-aec0-4f7d-8225-e4c971c46e18
+  path: /service-role/
+  role_name: Amazon_EventBridge_Scheduler_LAMBDA_0a11868946
