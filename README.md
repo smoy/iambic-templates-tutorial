@@ -9,7 +9,56 @@ IAMbic does not enforce directory structure for supported templates. It does com
 For example
 
 ```console
-TODO paste in tree output
+smoy@mbp iambic-templates-tutorial % tree
+.
+├── LICENSE
+├── README.md
+├── config
+│   └── iambic_config.yaml
+└── resources
+    └── aws
+        ├── iam
+        │   ├── managed_policy
+        │   │   └── iambic-tutorial-aws-dev
+        │   │       ├── amazon-eventbridge-scheduler-execution-policy-3cbacae5-aec0-4f7d-8225-e4c971c46e18.yaml
+        │   │       └── awslambdabasicexecutionrole-78a8ff97-2ce1-463c-8ade-3ebefaa55e39.yaml
+        │   ├── role
+        │   │   ├── all_accounts
+        │   │   │   ├── awsservicerolefororganizations.yaml
+        │   │   │   ├── awsserviceroleforsso.yaml
+        │   │   │   ├── awsserviceroleforsupport.yaml
+        │   │   │   ├── awsservicerolefortrustedadvisor.yaml
+        │   │   │   └── iambicspokerole.yaml
+        │   │   ├── iambic-tutorial-aws-dev
+        │   │   │   ├── amazon_eventbridge_scheduler_lambda_0a11868946.yaml
+        │   │   │   ├── awsreservedsso_administratoraccess_a8b8dc74ce313286.yaml
+        │   │   │   ├── import-sensor.yaml
+        │   │   │   ├── sample-app-role-dev.yaml
+        │   │   │   └── update_role_description-role-j21873m9.yaml
+        │   │   ├── iambic-tutorial-aws-mgmt
+        │   │   │   ├── awsreservedsso_administratoraccess_c46a6fdefb24c150.yaml
+        │   │   │   ├── awsserviceroleforcloudformationstacksetsorgadmin.yaml
+        │   │   │   ├── iambic_github_app_lambda_execution.yaml
+        │   │   │   └── iambichubrole.yaml
+        │   │   ├── iambic-tutorial-aws-prod
+        │   │   │   ├── awsreservedsso_administratoraccess_6dc64117fc3def79.yaml
+        │   │   │   └── sample-app-role-prod.yaml
+        │   │   ├── iambic-tutorial-aws-stage
+        │   │   │   ├── awsreservedsso_administratoraccess_ebe7cc3131876224.yaml
+        │   │   │   └── sample-app-role-stage.yaml
+        │   │   └── multi_account
+        │   │       ├── awsserviceroleforcloudformationstacksetsorgmember.yaml
+        │   │       ├── organizationaccountaccessrole.yaml
+        │   │       └── stacksets-exec-3a13bad69ee5cf8afa9722d7c9573dc1.yaml
+        │   └── user
+        │       └── multi_account
+        │           ├── alice.yaml
+        │           ├── bob.yaml
+        │           └── charlie.yaml
+        └── identity_center
+            └── permission_set
+                └── administratoraccess.yaml
+
 ```
 
 # IAMbic Github integration
