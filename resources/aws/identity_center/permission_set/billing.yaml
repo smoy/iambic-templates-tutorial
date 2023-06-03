@@ -1,0 +1,14 @@
+template_type: NOQ::AWS::IdentityCenter::PermissionSet
+access_rules:
+  - included_accounts:
+      - iambic-tutorial-aws-mgmt
+    included_orgs:
+      - o-4mqcbzngcu
+    users:
+      - smoy
+identifier: Billing
+properties:
+  name: Billing
+  managed_policies:
+    - arn: arn:aws:iam::aws:policy/job-function/Billing
+  session_duration: PT1H

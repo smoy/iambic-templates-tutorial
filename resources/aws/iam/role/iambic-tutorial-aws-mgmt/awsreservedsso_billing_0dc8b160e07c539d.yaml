@@ -1,0 +1,22 @@
+template_type: NOQ::AWS::IAM::Role
+included_accounts:
+  - iambic-tutorial-aws-mgmt
+identifier: AWSReservedSSO_Billing_0dc8b160e07c539d
+properties:
+  assume_role_policy_document:
+    statement:
+      - action:
+          - sts:AssumeRoleWithSAML
+          - sts:TagSession
+        condition:
+          StringEquals:
+            SAML:aud: https://signin.aws.amazon.com/saml
+        effect: Allow
+        principal:
+          federated: arn:aws:iam::{{account_id}}:saml-provider/AWSSSO_e8e34dddf617d5d9_DO_NOT_DELETE
+    version: '2012-10-17'
+  managed_policies:
+    - policy_arn: arn:aws:iam::aws:policy/job-function/Billing
+  max_session_duration: 43200
+  path: /aws-reserved/sso.amazonaws.com/us-west-2/
+  role_name: AWSReservedSSO_Billing_0dc8b160e07c539d
