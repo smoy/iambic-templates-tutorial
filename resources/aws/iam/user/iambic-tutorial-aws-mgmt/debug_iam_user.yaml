@@ -1,0 +1,16 @@
+template_type: NOQ::AWS::IAM::User
+included_accounts:
+  - iambic-tutorial-aws-mgmt
+identifier: debug_iam_user
+properties:
+  inline_policies:
+    - policy_name: debug_inline_policy
+      statement:
+        - action: lambda:ListLayers
+          effect: Deny
+          resource: '*'
+          sid: VisualEditor0
+      version: '2012-10-17'
+  managed_policies:
+    - policy_arn: arn:aws:iam::{{account_id}}:policy/debug_iam_user
+  user_name: debug_iam_user

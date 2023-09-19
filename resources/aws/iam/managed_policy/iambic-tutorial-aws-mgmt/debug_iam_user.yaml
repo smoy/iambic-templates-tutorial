@@ -1,0 +1,13 @@
+template_type: NOQ::AWS::IAM::ManagedPolicy
+included_accounts:
+  - iambic-tutorial-aws-mgmt
+identifier: debug_iam_user
+properties:
+  policy_document:
+    statement:
+      - action: iam:GetAccountSummary
+        effect: Deny
+        resource: '*'
+        sid: VisualEditor0
+    version: '2012-10-17'
+  policy_name: debug_iam_user
