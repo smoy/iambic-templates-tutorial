@@ -3,7 +3,7 @@ included_accounts:
   - iambic-tutorial-aws-dev
 identifier: import-sensor
 properties:
-  description: '2025-02-26T04:00:20.517534'
+  description: '2025-02-26T08:00:20.427665'
   assume_role_policy_document:
     statement:
       - action: sts:AssumeRole
