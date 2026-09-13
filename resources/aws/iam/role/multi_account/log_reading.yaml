@@ -1,0 +1,18 @@
+template_type: NOQ::AWS::IAM::Role
+included_accounts:
+  - iambic-tutorial-aws-dev
+  - iambic-tutorial-aws-prod
+  - iambic-tutorial-aws-stage
+identifier: LogReadingRole_{{account_name}}
+properties:
+  assume_role_policy_document:
+    statement:
+      - action: sts:AssumeRole
+        effect: Allow
+        principal:
+          aws: arn:aws:iam::659751573789:root
+    version: '2012-10-17'
+  description: 'use this role to read logs'
+  managed_policies:
+    - policy_arn: arn:aws:iam::aws:policy/CloudWatchLogsReadOnlyAccess
+  role_name: LogReadingRole_{{account_name}}
